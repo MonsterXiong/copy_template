@@ -27,7 +27,9 @@ def main():
         path_dir = input_log('请输入文件夹路径：')
         start_time = time.time()
         try:
-            file_list = get_file(tools.transform_path(path_dir))
+            # file_list = get_file(tools.transform_path(path_dir))
+            file_list = [elem for elem in get_file(tools.transform_path(path_dir)) if "~$" not in elem]
+
         except FileNotFoundError:
             error_log("哎呀,小主是不是犯糊涂了呀,没有这个文件夹呀，快去确认一下下")
         else:
@@ -35,6 +37,7 @@ def main():
                 error_log('小主,对不起,我没能找到您要的文件')
                 continue
             info_log('--------小主,我已经拿到文件列表了--------')
+            print(file_list,len(file_list))
             content = read_content(file_list)
             info_log('--------小主,Monster准备写入数据了哦--------')
 
