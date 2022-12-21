@@ -37,7 +37,6 @@ def main():
                 error_log('小主,对不起,我没能找到您要的文件')
                 continue
             info_log('--------小主,我已经拿到文件列表了--------')
-            print(file_list,len(file_list))
             content = read_content(file_list)
             info_log('--------小主,Monster准备写入数据了哦--------')
 
